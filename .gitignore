@@ -1,0 +1,91 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+.env
+
+# SQLite
+db.sqlite3
+
+# Django
+*.sqlite3
+*.pyc
+*.pyo
+.DS_Store
+
+# Environment variables
+.env
+
+# IDE specific files
+.idea/
+.vscode/
+
+# Logs and temporary files
+*.log
+*.tmp
+*.bak
+
+# Docker
+Dockerfile
+compose.yaml
+.dockerignore
+
+# Static files
+/static/
+/media/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+.Spotlight-V100
+.Trashes
+
+# IDE specific files
+.idea/
+.vscode/
+
+# Python cache
+__pycache__/
+
+# Local files
+local_settings.py
+
+# Environment variables
+.env
+
+# IDE specific files
+.idea/
+.vscode/
+
+# Logs and temporary files
+*.log
+*.tmp
+*.bak
+
+# Docker
+Dockerfile
+compose.yaml
+.dockerignore
+
+# Static files
+/static/
+/media/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+.Spotlight-V100
+.Trashes
+
+# IDE specific files
+.idea/
+.vscode/
+
+# Python cache
+__pycache__/
+
+# Local files
+local_settings.py
