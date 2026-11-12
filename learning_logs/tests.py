@@ -74,3 +74,36 @@ class AuthTests(TestCase):
         response = self.client.get(reverse('learning_logs:edit_entry', args=[self.entry1.id]))
         self.assertEqual(response.status_code, 404)
 
+
+
+class AdminTests(TestCase):
+    def setUp(self):
+        self.admin = User.objects.create_superuser(username='admin', password='admin-test-pass-123')
+        self.client.login(username='admin', password='admin-test-pass-123')
+
+    def test_admin_requires_login(self):
+        self.client.logout()
+        response = self.client.get('/admin/')
+        self.assertEqual(response.status_code, 302)
+        self.assertIn('/admin/login/', response['Location'])
+
+    def test_models_registered(self):
+        response = self.client.get('/admin/')
+        self.assertContains(response, 'Topics')
+        self.assertContains(response, 'Entries')
+
+    def test_create_topic_and_entry_via_admin(self):
+        response = self.client.post('/admin/learning_logs/topic/add/', {
+            'text': 'Admin topic',
+            'owner': self.admin.id,
+            'entry_set-TOTAL_FORMS': '0',
+            'entry_set-INITIAL_FORMS': '0',
+        })
+        self.assertEqual(response.status_code, 302)
+        topic = Topic.objects.get(text='Admin topic')
+        response = self.client.post('/admin/learning_logs/entry/add/', {
+            'topic': topic.id,
+            'text': 'Admin entry',
+        })
+        self.assertEqual(response.status_code, 302)
+        self.assertTrue(Entry.objects.filter(topic=topic, text='Admin entry').exists())
