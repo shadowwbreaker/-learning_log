@@ -1,24 +1,9 @@
-FROM python:3.13-slim-bookworm
-
-# Set environment variables
-ENV PYTHONDONTWRITEBYTECODE 1
-ENV PYTHONUNBUFFERED 1
-
-# Set work directory
-WORKDIR /code
-
-# Install system dependencies
-RUN apt-get update && apt-get install -y --no-install-recommends gcc python3-dev libpq-dev
-
-# Install Python dependencies
+FROM python:3.12-slim
+ENV PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1
+WORKDIR /app
 COPY requirements.txt .
-RUN pip install --upgrade pip && pip install -r requirements.txt
-
-# Copy project
+RUN python -m pip install --no-cache-dir -r requirements.txt
 COPY . .
-
-# Collect static files
-RUN python manage.py collectstatic --noinput
-
-# Run Gunicorn
-CMD ["gunicorn", "learning_log.wsgi:application", "--bind", "0.0.0.0:8000"]
+RUN mkdir -p /app/data
+EXPOSE 8000
+CMD ["gunicorn", "learning_log.wsgi:application", "--bind", "0.0.0.0:8000", "--workers", "2", "--timeout", "60"]

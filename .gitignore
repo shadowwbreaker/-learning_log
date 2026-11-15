@@ -34,3 +34,9 @@ db.sqlite3
 .Spotlight-V100
 .Trashes
 Thumbs.db
+
+ll_env/
+.vercel/
+.vercel
+.env*
+!.env.example
