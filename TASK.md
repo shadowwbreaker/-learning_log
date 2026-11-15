@@ -175,25 +175,28 @@ This project involves creating a Learning Log application using Django. The appl
 
 ## Final Checklist
 
-- [ ] Django project and app created
-- [ ] Models implemented
-- [ ] Views implemented
-- [ ] URLs configured
-- [ ] Templates created
-- [ ] Forms implemented
-- [ ] User authentication working
-- [ ] User isolation enforced
-- [ ] Bootstrap integrated
-- [ ] Static files configured
-- [ ] Environment variables set up
-- [ ] Docker configured
-- [ ] Docker Compose configured
-- [ ] Git security configured
-- [ ] README created
-- [ ] Automated tests created
-- [ ] Manual testing completed
-- [ ] Final verification completed
+- [x] Django project and app created
+- [x] Models implemented
+- [x] Views implemented
+- [x] URLs configured
+- [x] Templates created
+- [x] Forms implemented
+- [x] User authentication working
+- [x] User isolation enforced
+- [x] Bootstrap integrated
+- [x] Static files configured
+- [x] Environment variables set up
+- [x] Docker configured
+- [x] Docker Compose configured
+- [x] Git security configured
+- [x] README created
+- [x] Automated tests created
+- [x] Manual testing completed
+- [ ] Final verification completed (Docker runtime verification remains; Vercel and CI verified)
 
 ## Conclusion
 
 This project will be completed by following the above requirements and ensuring all checks are passed. The final application will be a fully functional Learning Log with all specified features and security measures.
+## Verification notes
+
+21 tests pass locally and in GitHub Actions on Python 3.12. Production Vercel home, static files, admin login, registration and entry workflow verified over HTTP. Docker configuration is provided; Docker Engine was unavailable locally, so container runtime and SQLite volume recreation are not yet verified.

@@ -1,5 +1,11 @@
 # Learning Log
 
+Работающий сайт: https://learning-log-rksi.vercel.app/
+Админка: https://learning-log-rksi.vercel.app/admin/
+
+Развёрнут в отдельном проекте Vercel `learning-log-rksi`, данные хранятся в отдельной PostgreSQL-базе Neon `learning-log-rksi-db`. Пароль администратора передаётся владельцу отдельно.
+
+
 Учебный дневник на Python 3.12 и Django 5.2: регистрация, темы, записи, редактирование и личные данные каждого пользователя. Админка: `/admin/`.
 
 ## Локальный запуск (PowerShell)
